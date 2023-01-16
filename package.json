@@ -1,0 +1,19 @@
+{
+	"name": "fastforward-bypass-allowlist-generator",
+	"version": "1.0.0",
+	"description": "Generate an allowlist for blocking solutions for domains bypassed by the FastForward extension",
+	"main": "index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Edgeburn/fastforward-bypass-allowlist-generator.git"
+	},
+	"author": "edgeburnmedia",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Edgeburn/fastforward-bypass-allowlist-generator/issues"
+	},
+	"homepage": "https://github.com/Edgeburn/fastforward-bypass-allowlist-generator#readme"
+}
