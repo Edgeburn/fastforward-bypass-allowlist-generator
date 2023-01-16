@@ -27,7 +27,7 @@ jobs:
                   username: ${{ secrets.USERNAME }}
                   password: ${{ secrets.PASSWORD }}
                   source: "adblock-rules.txt"
-                  target: "$ {{ secrets.TARGET }}"
+                  target: ${{ secrets.TARGET }}
     generate:
         runs-on: ubuntu-latest
         steps:
