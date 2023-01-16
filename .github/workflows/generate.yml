@@ -1,0 +1,47 @@
+name: Generate and Deploy Whitelist
+on:
+    push:
+        branches:
+            - master
+    schedule:
+        - cron: "0 0 1 * *"
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+            - name: Generate Whitelist
+              run: |
+                  npm install
+                  npm run generate
+            - name: Deploy to server
+              uses: appleboy/scp-action@master
+              with:
+                  host: ${{ secrets.HOST }}
+                  username: ${{ secrets.USERNAME }}
+                  password: ${{ secrets.PASSWORD }}
+                  source: "adblock-rules.txt"
+                  target: "$ {{ secrets.TARGET }}"
+    generate:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: 18
+            - name: Generate Whitelist
+              run: |
+                  npm install
+                  npm run generate
+            - name: Upload artifact
+              uses: actions/upload-artifact@v3
+              with:
+                  name: adblock-rules
+                  path: adblock-rules.txt
