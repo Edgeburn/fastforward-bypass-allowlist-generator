@@ -25,8 +25,8 @@ async function getAdBlockRules(url) {
 	}
 }
 
-getAdBlockRules("https://raw.githubusercontent.com/FastForwardTeam/FastForward/manifest-v3/Bypassed.md").then(
-	(rules) => {
-		fs.writeFileSync("adblock-rules.txt", rules.join("\n"));
-	}
-);
+getAdBlockRules(
+	"https://raw.githubusercontent.com/FastForwardTeam/FastForward/manifest-v3/Bypassed.md"
+).then((rules) => {
+	fs.writeFileSync("adblock-rules.txt", rules.join("\n"));
+});
