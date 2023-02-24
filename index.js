@@ -21,6 +21,7 @@ async function getAdBlockRules(url) {
 		adBlockRules.push("");
 		table.forEach((line) => {
 			if (!line.startsWith("|")) return;
+			if (line.includes("🛑")) return;
 			let domain = line.split("|")[1].trim();
 			domain = domain
 				.replace(/\/+$/, "")
